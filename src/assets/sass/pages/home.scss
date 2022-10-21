@@ -1,0 +1,15 @@
+.home-section{
+  .home{
+   padding: 1rem 0%;
+    .revenue-content{
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      align-items: center;
+      .card{
+        box-shadow: 0px 0px 5px 1px #939393;
+        max-width: 300px;
+        height: 200px;
+      }
+    }
+  }
+}

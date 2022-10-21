@@ -1,0 +1,43 @@
+.header-section {
+  box-shadow: 1px 1px 1px 1px #fbf4cd;
+  padding: 1.3rem 0;
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+
+    color: #fbf4cd;
+    .search-dashboard {
+      form {
+        border-radius: 10px;
+        width: 350px;
+        input {
+          border-radius: 10px;
+          width: 100%;
+          font-size: 1.8rem;
+          padding: 4px 2%;
+          outline: none;
+          color: black;
+        }
+      }
+    }
+    .logo-img {
+      margin-left: 2rem;
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
+    .content-r {
+      display: flex;
+      align-items: center;
+      .icon-logo {
+        font-size: 2.3rem;
+        margin-left: 3rem;
+        color: black;
+      }
+    }
+  }
+}
