@@ -28,7 +28,7 @@ class App extends Component {
         return (
             <div className="app">
                 <div className="row">
-                    <div className="mixed-chart">
+                    <div   className="mixed-chart">
                         <Chart
                             options={this.state.options}
                             series={this.state.series}

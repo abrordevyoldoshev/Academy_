@@ -1,6 +1,18 @@
 import request from './api'
-const authService = {
-    register: (data) => request.post('signUp', data),
-}
+import loginRequest from './loginService'
 
-export default authService;
+export const adminService = {
+    register: (data) => request.post('superAdmin/signUp', data, {}),
+    login: (data) => loginRequest.post('superAdmin/signIn', data, {}),
+};
+
+export const postCourse = {
+    courses:(data)=>request.post('/admin/courseCreate',data,)
+};
+
+
+
+
+
+
+

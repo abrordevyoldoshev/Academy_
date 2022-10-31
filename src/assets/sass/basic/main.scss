@@ -12,10 +12,13 @@ body{
 html{
   font-size: 62.5%;
 }
-
-@import "src/assets/sass/pages/adminLayout";
-@import "./src/assets/sass/components/menu";
-@import "../sass/components/header";
-@import "src/assets/sass/pages/home";
-@import "src/assets/sass/pages/register";
-@import "./pages/success";
+.ant-layout {
+  background-color: #130e0e;
+}
+@import "varebls";
+@import "../pages/adminLayout";
+@import "../components/menu";
+@import "../components/header";
+@import "../pages/home";
+@import "../pages/register";
+@import '../components/userHeader';

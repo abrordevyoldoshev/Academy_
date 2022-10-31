@@ -1,79 +1,59 @@
-import React, {useState} from "react";
-import {Formik, Form} from "formik";
-import * as Yup from "yup";
-import {useNavigate} from "react-router-dom";
-import InputRegister from "../../../components/InputRegister";
-import authService from "../../../service/authService";
-import {notification} from "antd";
+import React, { useState } from "react";
+import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import {adminService } from "../../../service/authService";
+import { useDispatch } from "react-redux";
+import { userData } from "../../../redux/reducer/userReducer";
+import { toast } from "react-toastify";
+import RegForm from "../../../components/RegForm";
+import { Spin } from "antd";
 
 const Register = () => {
-    const navigate = useNavigate()
-    const [err, setErr] = useState(null)
-    const [loading, setLoading] = useState(false)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [err, setErr] = useState("");
+  const [loading, setLoading] = useState(false);
 
-    const validate = Yup.object({
-        name: Yup.string()
-            .max(25, "Must be 25 characters or less")
-            .required("Required"),
-        email: Yup.string().email("Email is invalid").required("Required"),
-        password: Yup.string()
-            .required("Password is required"),
-    });
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+      secretInfo: "",
+    },
+    onSubmit: (values) => {
+      setLoading(true);
+        adminService
+          .register(values)
+          .then((res) => {
+            dispatch(userData(res));
+            navigate("/");
+            toast.success("Congratulations, you're happy");
+          })
+          .catch((err) => setErr(err.response.data))
+          .finally(() => setLoading(false));
+    },
+      validate: () => {
 
-    const handleSubmit = (values) => {
-        setLoading(true)
-        authService.register(values)
-            .then((res) => {
-                console.log("res", res)
-                notification.success(res?.msg)
-                navigate('/successreg')
-            })
-            .catch((err) => setErr(err.response.data))
-            .finally(() => setLoading(false));
-    };
-    console.log("err", err)
+      }
+  });
 
-    return (
-        <section className="container">
-            <div className="row-reg">
-                <div className="reg-form-container">
-                    {
-                        loading ? (
-                            <h1>Loading....</h1>
-                        ) : (
-                            <Formik
-                                initialValues={{
-                                    name: "",
-                                    email: "",
-                                    password: "",
-                                }}
-                                validationSchema={validate}
-                                onSubmit={(values) => handleSubmit(values)}
-                            >
-                                {(formik) => (
-                                    <Form className="form">
-                                        <h1>Sign up</h1>
-                                        <InputRegister lable="First Name" name="name" type="text"/>
-                                        <InputRegister lable="Email" name="email" type="email"/>
-                                        <InputRegister
-                                            lable="Password"
-                                            name="password"
-                                            type="password"
-                                        />
-                                        {err ? err.error : ""}
-                                        <button className="ant-btn  ant-btn-primary" type="submit">
-                                            Sign Up
-                                        </button>
-                                    </Form>
-                                )}
-                            </Formik>
-                        )
-                    }
-
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section className="container-reg">
+      <div className="reg-content">
+        {loading ? (
+          <div className="example">
+            <Spin />
+          </div>
+        ) : (
+          <RegForm
+            formik={formik}
+            err={err}
+          />
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default Register;

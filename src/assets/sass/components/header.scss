@@ -1,12 +1,19 @@
 .header-section {
   box-shadow: 1px 1px 1px 1px #fbf4cd;
-  padding: 1.3rem 0;
+  background-color: #001529;
+  padding: 1rem 0;
+  .trigger{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    font-size: 2rem;
+  }
   .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 3%;
-
     color: #fbf4cd;
     .search-dashboard {
       form {
@@ -36,7 +43,7 @@
       .icon-logo {
         font-size: 2.3rem;
         margin-left: 3rem;
-        color: black;
+        color: #ffffff;
       }
     }
   }

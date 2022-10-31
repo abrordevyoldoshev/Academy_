@@ -1,0 +1,8 @@
+
+@mixin CenterMix($flex,$align,$justify,$gaps,$direction){
+  display: $flex;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gaps;
+  flex-direction: $direction;
+}

@@ -2,37 +2,35 @@ import { FaList, FaRegHeart } from "react-icons/fa";
 import { RiPencilLine } from "react-icons/ri";
 import { BiCog } from "react-icons/bi";
 import { FiHome } from "react-icons/fi";
+import {Link} from "react-router-dom";
 
 const routesData = [
   {
-    path: "/admin",
     key: 0,
-    title: "Home",
+    label: <Link to='/admin'>Home</Link>,
     icon: <FiHome />,
-    active: true,
   },
   {
-    path: "create",
     key: "1",
-    title: "Create course",
+    label: <Link to='create'>Create Course</Link>,
     icon: <FaList />,
   },
   {
-    path: "teacher",
+    to:  'teacher',
     key: "2",
-    title: "Teacher",
+    label: <Link to='teacher'>Teacher</Link>,
     icon: <FaRegHeart />,
   },
   {
-    path: "favourite",
+    to: 'favourite',
     key: "3",
-    title: "Favourite",
+    label: <Link to='settings'>Settings</Link>,
     icon: <RiPencilLine />,
   },
   {
-    path: "settings",
+    to:'settings' ,
     key: "4",
-    title: "Settings",
+    label:<Link to='favourite'>Favourite</Link>,
     icon: <BiCog />,
   },
 ];

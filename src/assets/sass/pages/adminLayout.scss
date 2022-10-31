@@ -1,11 +1,10 @@
-.flex-menu-dashboard {
-  display: flex;
-  .colm-menu {
-    display: flex;
-    flex-direction: column;
+.container-layout{
+  .site-layout{
     width: 100%;
-    .pages{
-      padding: 1.5em;
+    .site-layout-background{
+      padding: 24px;
+      height: calc(100vh - 70px);
     }
   }
+
 }

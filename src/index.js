@@ -2,15 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import "./assets/sass/main.scss";
+import {Provider} from "react-redux";
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import "./assets/sass/basic/main.scss";
 import "antd/dist/antd.css";
+import 'react-toastify/dist/ReactToastify.css';
 import "react-pro-sidebar/dist/css/styles.css";
-import { store } from "./redux/store/store";
+import store,{persistor} from "./redux/store/store";
+import {PersistGate} from "redux-persist/integration/react";
+import {ToastContainer} from "react-toastify";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+        <PersistGate loadeing={null} persistor={persistor}>
+            <BrowserRouter  >
+                <ToastContainer />
+                <App />
+            </BrowserRouter>
+        </PersistGate>
 
+    </Provider>
 );
