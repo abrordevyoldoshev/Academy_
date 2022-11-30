@@ -2,7 +2,8 @@ import React from 'react';
 import {shallowEqual, useSelector} from "react-redux";
 import {MdOutlineAdminPanelSettings} from 'react-icons/md'
 import {Layout, Menu} from 'antd';
-import routesData from "../config/Sidebar";
+import routeData from "../config/Sidebar";
+
 
 const {Sider} = Layout;
 const App = () => {
@@ -22,9 +23,9 @@ const App = () => {
         <Menu
             theme="dark"
             mode="vertical"
-            items={routesData}
-        >
-        </Menu>
+            items={routeData}
+        />
+
     </Sider>);
 };
 export default App;

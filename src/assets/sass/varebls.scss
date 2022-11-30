@@ -1,0 +1,14 @@
+ $--dark:#283142;
+ $--dark2: #283142;
+  $--white: #e3e3e3;
+
+@mixin FlexMix($flex,$align,$justify,$gaps,$direction){
+  display: $flex;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gaps;
+  flex-direction: $direction;
+}
+
+
+

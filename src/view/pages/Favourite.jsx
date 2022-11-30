@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const Favourite = () => {
+
     return (
         <div>
-          <h1>Favorite</h1>
+
+
+
         </div>
     );
 };

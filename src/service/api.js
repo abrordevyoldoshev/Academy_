@@ -4,6 +4,7 @@ import {notification} from "antd";
 const service = axios.create({
     baseURL: process.env.React_App_Url,
     timeout:8000,
+
 });
 
 service.interceptors.request.use(

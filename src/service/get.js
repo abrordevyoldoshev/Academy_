@@ -1,38 +1,31 @@
 import axios from 'axios';
-import {toast} from "react-toastify";
-
-const ApiToken = axios.create({
+import {notification} from 'antd';
+const token = localStorage.getItem('token')
+const getRequest = axios.create({
     baseURL: "https://educations-apis.herokuapp.com/",
-    timeout:8000,
-});
+    timeout: 8000,
+    headers:{
+        'Authorization':token
+    }
+    });
 
-
-// Config
-const TOKEN_PAYLOAD_KEY = 'authorization';
-const AUTH_TOKEN_TYPE = 'Bearer';
 
 // API Request interceptor
-ApiToken.interceptors.request.use(
+getRequest.interceptors.request.use(
     (config) => {
-        const access_token = localStorage.getItem("token");
-
-        if (access_token) {
-            config.headers[TOKEN_PAYLOAD_KEY] = AUTH_TOKEN_TYPE + ' ' + access_token;
-        }
-
         return config;
     },
+
     (error) => {
         // Do something with request error here
-        toast.error({
+        notification.error({
             message: 'Error',
         });
         Promise.reject(error);
     }
 );
 
-
-ApiToken.interceptors.response.use(
+getRequest.interceptors.response.use(
     (response) => {
         return response.data;
     },
@@ -50,11 +43,10 @@ ApiToken.interceptors.response.use(
             notificationParam.message = 'Time Out';
         }
 
-        toast.error(`${notificationParam.message}`);
+        notification.error(notificationParam);
 
         return Promise.reject(error);
     }
 );
 
-export default ApiToken;
-
+export default getRequest;

@@ -9,25 +9,24 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-
 import storage from "redux-persist/lib/storage";
 import rootReducer from "./rootReducer";
 
-const authPersistConfig = {
-  key: "key",
-  storage,
+const persistConfig = {
+  key: "root",
   version: 1,
-  whitelist: ["toggle"],
-  blacklist: ["auth"],
+  storage,
+  whitelist: ["toggles", "product", "name",'category','course'],
 };
 
-const persistedReducer = combineReducers({
-  ...rootReducer,
-  auth: persistReducer(authPersistConfig, rootReducer.auth),
- toggle : persistReducer(authPersistConfig, rootReducer.toggle),
-});
 
-const store = configureStore({
+// Actionsdan kelgan malumotlar
+const persistedReducer = persistReducer(
+  persistConfig,
+  combineReducers(rootReducer)
+);
+
+export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -38,4 +37,3 @@ const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-export default store;

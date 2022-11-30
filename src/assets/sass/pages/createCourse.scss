@@ -1,0 +1,85 @@
+.ant-card,
+.ant-card-bordered {
+  background: $--dark !important;
+  border: none !important;
+  border-radius: 10px !important;
+}
+
+.ant-table-thead > tr > th {
+  background: $--dark !important;
+  color: $--white !important;
+  border-bottom: 1px solid #3f4b5a !important;
+}
+.ant-table-content {
+  background: $--dark !important;
+  color: white;
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom: 1px solid #3f4b5a !important;
+  transition: background 0.3s;
+}
+
+.ant-table-tbody > tr.ant-table-row:hover > td,
+.ant-table-tbody > tr > td.ant-table-cell-row-hover {
+  background: #1b2531 !important;
+}
+
+.ant-card-extra {
+  width: 65%;
+}
+
+.ant-select-selector {
+  height: 10vh;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  height: 5vh !important;
+}
+
+.search-course {
+  @include FlexMix(flex, center, center, 5rem, 0);
+  .search-cat {
+    color: $--white;
+  }
+  .ant-select-arrow {
+    color: $--white;
+  }
+  input {
+    border-radius: 10px;
+    width: 100%;
+    background-color: transparent;
+    color: $--white;
+    height: 3.5rem;
+  }
+}
+.title-category {
+  color: $--white;
+  font-weight: 600;
+}
+.btn-cate {
+  background-color: #4474c9 !important;
+  border: none !important;
+  border-radius: 12px !important;
+  transition: 0.5s all ease !important;
+  animation: shiner 2s infinite;
+  .icon-c {
+    margin-right: 3px;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 10px 0px #4096ff !important;
+  }
+}
+
+@keyframes shiner {
+  0% {
+    box-shadow: 0px 0px 10px 0px #4096ff ;
+  }
+  20%{
+    box-shadow: 0px 0px 10px 0px #4096ff ;
+  }
+  0% {
+    box-shadow: 0px 0px 10px 0px #104381;
+  }
+}

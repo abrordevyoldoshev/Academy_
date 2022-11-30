@@ -12,11 +12,7 @@ const Header = () => {
 
         <div  className='trigger'>
          <MenuToggle/>
-          <div className='search-dashboard'>
-            <form>
-              <input type="text" placeholder="search..." />
-            </form>
-          </div>
+
         </div>
             <div className="content-r">
           <i className='icon-logo'>

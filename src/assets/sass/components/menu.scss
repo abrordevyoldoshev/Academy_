@@ -1,34 +1,62 @@
-.ant-layout{
+.ant-layout-sider {
+  background: $--dark2 !important;
 }
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: $--dark2 !important;
+}
+
 .logo {
-  .ant-menu-item-selected {
-    background-color: #001529 !important;
-  }
+
+  border-bottom: 1px solid #777575;
+  border-left-width: 100vw;
 
   .ant-menu-title-content {
     color: white;
-
+    margin-left: 10px;
   }
+
   .ant-menu-vertical {
     border-right: none;
   }
 
-  .ant-menu-item
+  .ant-menu-vertical > .ant-menu-item {
+    margin-left: 10px;
+  }
+
+  .ant-menu-item,
   .ant-menu-item-icon {
     font-size: 2rem;
     color: white;
   }
 
+  .ant-menu.ant-menu-inline-collapsed > .ant-menu-item {
+    margin-left: 0;
+    transform: translateY(10%);
+  }
+
   .logo-menu {
-    background-color: #001529;
+    background-color: $--dark2;
     font-size: 3rem;
     height: 100%;
     justify-content: center;
-    padding: 1rem 0;
+    padding: 10px 0;
 
     label {
       color: white;
     }
-
   }
+}
+
+.ant-menu.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub,
+.ant-menu.ant-menu-dark .ant-menu-sub {
+  background: $--dark2 !important;
+  margin: 10px;
+  font-size: 17px;
+}
+
+.ant-menu.ant-menu-inline-collapsed >
+.ant-menu-item .ant-menu-item-icon {
+  font-size: 20px !important;
 }
